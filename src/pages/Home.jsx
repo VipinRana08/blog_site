@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import service from "../appwrite/config";
 import {Container, PostCard} from "../components";
-import FloatingButton from "../components/chat-bot/FloatingButton";
+
 
 function Home(){
     const [posts, setPosts] = useState([])
@@ -23,7 +23,6 @@ function Home(){
                             <h1 className="text-2xl font-bold hover:text-gray-500">
                                 Login to read posts
                             </h1>
-                            <FloatingButton/>
                         </div>
                     </div>
                 </Container>
