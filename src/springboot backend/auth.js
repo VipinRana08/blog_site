@@ -91,7 +91,11 @@ export class AuthService {
 
     
     async logout() {
-        localStorage.removeItem('authToken');
+        try {
+            localStorage.removeItem('authToken');
+        } catch (error) {
+            console.log("Logout error: " + error);
+        }
     }
 }
 
