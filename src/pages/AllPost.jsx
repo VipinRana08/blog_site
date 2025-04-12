@@ -1,21 +1,20 @@
 import React, {useState, useEffect} from "react";
-import service from "../appwrite/config";
+import service from "../springboot backend/service";
 import { PostCard, Container } from "../components";
 
 function AllPosts(){
     const [posts, setPosts] = useState([])
     useEffect(() => {})
-    service.getPosts([]).then((posts) => {
-        if(posts){
-            setPosts(posts.documents)
-        }
-    })
+    service.getAllPosts().then((post) => {
+        const activePosts = post.filter(p => p.status === "active");
+        setPosts(activePosts);
+    }, [posts])
     return (
         <div className="w-full py-8">
             <Container>
                 <div className="flex flex-wrap">
                     {posts.map((post) => (
-                        <div key={post.$id} className="p-2 w-1/4">
+                        <div key={post.slug} className="p-2 w-1/4">
                             <PostCard {...post}/>
                         </div>
                     ))}

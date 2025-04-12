@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom"
 import {login } from "../store/authSlice"
 import {Button, Input, Logo} from "./index"
 import { useDispatch } from "react-redux";
-import authService from "../appwrite/auth"
+import service from "../springboot backend/auth"
 import {useForm} from "react-hook-form"
 
 function Signup(){
@@ -15,10 +15,10 @@ function Signup(){
     const create = async(data) =>{
         setError("");
         try {
-            const user = await authService.creatAccount(data)
+            const user = await service.creatAccount(data)
             if(user){
-                const userData = await authService.getCurrentUser();
-                if(userData) dispatch(login(userData))
+                // const userData = await service.getCurrentUser();
+                // if(userData) dispatch(login(userData))
                 navigate("/")
             }
         } catch (error) {

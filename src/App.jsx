@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css'
 import { useDispatch } from 'react-redux';
-import authService from './appwrite/auth';
+import service from './springboot backend/auth';
 import {login, logout} from './store/authSlice';
 import { Header, Footer} from './components/index';
 import {Outlet} from 'react-router-dom'
@@ -11,7 +11,7 @@ function App() {
     const dispatch = useDispatch();
     
     useEffect(() => {
-        authService.getCurrentUser()
+        service.getCurrentUser()
         .then((userData) => {
             if(userData){
                 dispatch(login({userData}));
@@ -23,11 +23,11 @@ function App() {
     }, []);
     return !loading ? (
         <div className='min-h-screen flex flex-wrap 
-        content-between bg-gray-400'>
+        content-between bg-gray-600'>
             <div className='w-full block'>
                 <Header/>
                 <main className='h-screen text-center'>
-                    Welcome !!! <Outlet/>
+                    <h1 className='font-bold italic'> Hello !!! 😎</h1> <Outlet/>
                 </main>
                 <Footer/>
             </div>

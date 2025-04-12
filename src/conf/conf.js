@@ -6,7 +6,8 @@ const conf = {
     appWriteBucketId: String(import.meta.env.VITE_APPWRITE_BUCKET_ID),
     openAiKey: String(import.meta.env.VITE_OPENAI_API_KEY),
     editorKey: String(import.meta.env.VITE_EDITOR_KEY),
-    springBootUrl: String(import.meta.env.VITE_SPRINGBOOT_URL)
+    springBootUrl: String(import.meta.env.VITE_SPRINGBOOT_URL),
+    rteKey: String(import.meta.env.VITE_RTE_KEY)
 };
 
 export default conf;

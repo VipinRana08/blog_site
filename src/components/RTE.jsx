@@ -1,6 +1,7 @@
 import React from "react";
 import {Editor} from "@tinymce/tinymce-react";
-import{Controller} from "react-hook-form"
+import{Controller} from "react-hook-form";
+import conf from "../conf/conf";
 
 export default function RTE({name, control, label, defaultValue =""}){
     return (
@@ -14,7 +15,7 @@ export default function RTE({name, control, label, defaultValue =""}){
             render={({field: {onChange}})=>(
                 <Editor
                     initialValue={defaultValue}
-                    apiKey='thp5necu44bfspa8qhy89w7xvgmuehzecdk7tym3w5uxxif2'
+                    apiKey= {conf.rteKey}
                     init={{
                         plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
                         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',

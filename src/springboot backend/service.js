@@ -101,7 +101,7 @@ export class Service {
         }
     }
 
-    async getallPosts() {
+    async getAllPosts() {
         try {
             const token = localStorage.getItem('authToken')
             const response = await fetch(`${this.apiUrl}/public/get-all-posts`, {

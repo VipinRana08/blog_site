@@ -1,14 +1,14 @@
 import React from "react";
-import service from "../appwrite/config";
+import service from "../springboot backend/service";
 import {Link} from "react-router-dom";
+import ImagePreview from "./ImagePreview";
 
-function Postcard({$id, title, image}){
+function Postcard({slug, title, image}){
     return (
-        <Link to={`/post/${$id}`}>
+        <Link to={`/post/${slug}`}>
             <div className="w-full bg-gray-100 rounded-xl p-4">
                 <div className="w-full justify-center mb-4">
-                    <img src={service.getFilePreview(image)}
-                    alt={title} className="rounded-xl"/>
+                <ImagePreview image={image} service={service} />
                 </div>
                 <h2 className="text-xl font-bold">{title}</h2>
             </div>

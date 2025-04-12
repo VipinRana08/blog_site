@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Container, PostForm} from "../components";
-import service from "../appwrite/config";
+import service from "../springboot backend/service";
 import { useNavigate, useParams } from "react-router-dom";
 
 function EditPost(){
