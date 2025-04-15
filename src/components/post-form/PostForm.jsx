@@ -4,6 +4,7 @@ import {Button, Input, Select, RTE} from ".."
 import service from "../../springboot backend/service";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import FloatingChatBot from "../../chat-bot/FloatingButton";
 
 export default function PostForm({post}){
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
@@ -68,6 +69,7 @@ export default function PostForm({post}){
     }, [watch, slugTransform, setValue])
 
     return (
+        <>
         <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
             <div className="w-2/3 px-2">
                 <Input
@@ -117,5 +119,7 @@ export default function PostForm({post}){
                 </Button>
             </div>
         </form>
+        <FloatingChatBot />
+        </>
     );
 }

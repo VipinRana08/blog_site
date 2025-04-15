@@ -187,6 +187,30 @@ export class Service {
             console.error("Error fetching file preview:", error);
         }
     }
+
+    async getAiResponse(message){
+        try {
+            const token = localStorage.getItem('authToken')
+            const response = await fetch(`${this.apiUrl}/ai/chat`, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ message })
+            });
+        
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            return data.response;
+        } catch (error) {
+            console.error('Error sending message to AI:', error);
+            return null;
+        }
+    }
 }
 
 const service = new Service();
