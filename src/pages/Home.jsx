@@ -55,6 +55,7 @@ function Home(){
                 <Container>
                     <div className="flex flex-wrap">
                         <div className="p-2 w-full">
+                            <h1 className='font-bold italic'> Hello !!! 😎</h1>
                             <h2 className="text-2xl font-bold hover:text-gray-500">
                                 <p className="italic font-semibold">"Did you come here to read and add some anonymous posts?"</p>
                                 <p className="italic font-semibold">"Curious about what others are sharing?"</p>

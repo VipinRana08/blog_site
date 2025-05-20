@@ -22,15 +22,12 @@ function App() {
         .finally(() => setLoading(false));
     }, []);
     return !loading ? (
-        <div className='min-h-screen flex flex-wrap 
-        content-between bg-gray-600'>
-            <div className='w-full block'>
-                <Header/>
-                <main className='h-screen text-center'>
-                    <h1 className='font-bold italic'> Hello !!! 😎</h1> <Outlet/>
-                </main>
-                <Footer/>
-            </div>
+        <div className='flex flex-col min-h-screen bg-gray-600'>
+            <Header/>
+            <main className='flex-grow text-center p-4'>
+                <Outlet/>
+            </main>
+            <Footer/>
         </div>
     ) : null;
 }
