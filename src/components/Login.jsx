@@ -19,7 +19,7 @@ function Login(){
             if(session) {
                 const userData = await service.getCurrentUser()
                 if(userData) dispatch(authLogin(userData));     
-                navigate("/all-posts")
+                setTimeout(() => navigate("/all-posts"), 0);
             }
         } catch (error) {
             setError(error.message)

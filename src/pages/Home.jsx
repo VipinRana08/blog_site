@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import service from "../springboot backend/service";
 import {Container, PostCard} from "../components";
 
-
 function Home(){
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -49,7 +48,8 @@ function Home(){
         );
     }
 
-    if(posts.length === 0){
+    const isLoggedIn = localStorage.getItem('authToken') !== null;
+    if(posts.length === 0 && !isLoggedIn){
         return (
             <div className="w-full py-8 mt-4 text-center">
                 <Container>
@@ -76,11 +76,12 @@ function Home(){
         <div className="w-full py-8">
             <Container>
                     <div className="flex flex-wrap">
-                        {posts.map((post) =>(
-                            <div key={post.slug} className="p-2 w-1/4">
+                        {posts.map((post) =>{
+                            
+                            return (<div key={post.slug} className="p-2 w-1/4">
                                 <PostCard {...post}/>
-                            </div>
-                        ))}
+                            </div>)
+                        })}
                     </div>
                 </Container>
         </div>

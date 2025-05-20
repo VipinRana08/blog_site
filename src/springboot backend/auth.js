@@ -38,9 +38,7 @@ export class AuthService {
 
     async login({ email, password }) {
         const userName = email; 
-        console.log("Username: " + userName + " Password: " + password);
         try {
-        console.log("In TRY BLOCK")
         const response = await fetch(`${this.apiUrl}/public/login`, {
             method: 'POST',
             headers: {
@@ -48,10 +46,8 @@ export class AuthService {
             },
             body: JSON.stringify({ userName, password }),
         });
-        console.log("In TRY BLOCK" + response)
         if (response.status === 200) {
             const data = await response.text();
-            console.log(data);
             localStorage.setItem('authToken', data); 
             return data; 
         } else if (response.status === 401) {
